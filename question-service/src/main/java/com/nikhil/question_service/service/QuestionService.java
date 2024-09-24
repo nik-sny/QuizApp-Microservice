@@ -72,13 +72,13 @@ public class QuestionService {
     public ResponseEntity<Integer> getScore(List<Response> responses) {
 
 
-        int right = 0;
+        int correct = 0;
 
         for(Response response : responses){
             Question question = questionDao.findById(response.getId()).get();
             if(response.getResponse().equals(question.getRightAnswer()))
-                right++;
+                correct++;
         }
-        return new ResponseEntity<>(right, HttpStatus.OK);
+        return new ResponseEntity<>(correct, HttpStatus.OK);
     }
 }

@@ -20,8 +20,8 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @Autowired
-    Environment environment;
+//    @Autowired
+//    Environment environment;
 
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions(){
@@ -46,7 +46,7 @@ public class QuestionController {
 
     @PostMapping("getQuestions")
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(@RequestBody List<Integer> questionIds){
-        System.out.println(environment.getProperty("local.server.port"));
+//        System.out.println(environment.getProperty("local.server.port"));
         return questionService.getQuestionsFromId(questionIds);
     }
 
